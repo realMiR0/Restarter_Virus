@@ -14,7 +14,9 @@ This project is created for educational purposes, security research, and underst
 
 ---
 
-<img width="400" height="231" alt="restart" src="https://github.com/user-attachments/assets/a11b4157-83e8-461d-b3a3-03f8f7236f6b" />
+<p align="center">
+  <img width="400" alt="restart" src="https://github.com/user-attachments/assets/a11b4157-83e8-461d-b3a3-03f8f7236f6b">
+</p>
 
 ---
 
