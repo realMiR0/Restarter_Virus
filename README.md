@@ -4,8 +4,6 @@
   Powered By MiR0
 </p>
 
----
-
 ## 📌 About
 
 RESTARTER_LOOP is a lightweight Python project designed to demonstrate system restart behaviors and Windows automation concepts.
@@ -13,6 +11,10 @@ RESTARTER_LOOP is a lightweight Python project designed to demonstrate system re
 This project is created for educational purposes, security research, and understanding how automated system actions work.
 
 ⚠️ Use only on systems you own or have permission to test.
+
+---
+
+<img width="400" height="231" alt="restart" src="https://github.com/user-attachments/assets/a11b4157-83e8-461d-b3a3-03f8f7236f6b" />
 
 ---
 
