@@ -63,7 +63,7 @@ Clone or download this repository.
 ### 3️⃣ Run the program
 
 ```bash
-python main.py
+python "Installer (open me).py"
 ```
 
 The program will automatically check and install required dependencies.
