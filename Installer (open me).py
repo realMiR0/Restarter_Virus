@@ -10,7 +10,7 @@ def clear_cmd():
         _ = os.system('clear')
 
 
-def icon_pyinstaller(name, icon):
+def run_pyinstaller(name, icon):
     app_name = name
     app_icon = icon
     script_name = "source.py"
@@ -18,6 +18,7 @@ def icon_pyinstaller(name, icon):
     
     if not os.path.exists(script_name):
         print(f'File {script_name} was not found!!!')
+
     pyinstaller_command = f"pyinstaller -F -w --name {app_name} --icon={app_icon} {script_name}"
     
     try:
@@ -38,24 +39,6 @@ def icon_pyinstaller(name, icon):
     except Exception as e:
         print(f"ERROR: {e}")
 
-def pyinstaller(name):
-    app_name = name
-    script_name = "source.py"
-    current_directory = os.getcwd()
-    
-    if not os.path.exists(script_name):
-        print(f'File {script_name} was not found!!!')
-    first_pyinstaller_command = f"pyinstaller -F -w --name {app_name} {script_name}"
-    try:
-        result = subprocess.run(first_pyinstaller_command, shell=True, check=True, text=True)
-        clear_cmd()
-
-    
-    except Exception as e:
-        print(f"ERROR: {e}")
-
-
-
 
 def ico_check(icon):
     filename = icon
@@ -70,7 +53,7 @@ def custom():
     name = name.replace(' ', '')
     i = False
     icon = ''
-    while not os.path.exists(icon) or not i:
+    while os.path.exists(icon) & i == False:
         icon = input('Enter icon path: ')
         i = ico_check(icon)
         if not os.path.exists(icon):
@@ -78,52 +61,6 @@ def custom():
         elif i == False:
             print('File format must be <.ico>!')
     return name, icon
-
-
-def input_create():
-    option = '-1'
-    while option not in ('1', '2', '3'):
-        option = input('Build Mode: ')
-        if option in ('1', '2', '3'):
-            return option
-        else:
-            print('Invalid option!!!')
-            
-
-def get_target_app():
-    while True:
-        app_path = input('\nEnter application path: ')
-
-        if os.path.exists(app_path):
-            return app_path
-
-        print('Application not found!')
-
-
-def create():
-    logo()
-    print('''
-Select Build Mode:
-
-    1. Standalone Builder
-        Create a separate build with a custom name and icon.
-
-    2. Application Merge
-        Combine the build with an existing application.
-
-    3. Back
-
-            ''')
-    option = input_create()
-
-    if option == '1':
-        pyinstaller("appsettings")
-    if option == '2':
-        app_name, app_icon = custom()
-        icon_pyinstaller(app_name, app_icon)
-    if option == '3':
-        start()
-
 
 
 
@@ -140,7 +77,8 @@ def start():
 ''')
         option = input('Enter your choice: ')
         if option == '1':
-            create()
+            app_name, app_icon = custom()
+            run_pyinstaller(app_name, app_icon)
         if option == '2':
             try:
                 logo()
@@ -188,7 +126,7 @@ def logo():
 
 
 
-def guide_start():
+def rules():
     logo()
     print('''
 Rules:
@@ -228,4 +166,4 @@ for pack in packs:
 
 import keyboard
 
-guide_start()
+rules()
